@@ -15,6 +15,8 @@ def RestaurantSearch(City,Cuisine):
 	TEMP = ZomatoData[(ZomatoData['Cuisines'].apply(lambda x: Cuisine.lower() in x.lower())) & (ZomatoData['City'].apply(lambda x: City.lower() in x.lower()))]
 	return TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
 
+
+
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
@@ -22,8 +24,14 @@ class ActionSearchRestaurants(Action):
 	def run(self, dispatcher, tracker, domain):
 		#config={ "user_key":"f4924dc9ad672ee8c4f8c84743301af5"}
 		loc = tracker.get_slot('location')
+		if ("loc" not in WeOperate): 
+			dispatcher.utter_message ("Sorry, we don’t operate in this city. Can you please specify some other location") 
+			dispatcher.utter_ask_location_SomeOtherLocation()
+			return [SlotSet('location',loc)]
+			
 		cuisine = tracker.get_slot('cuisine')
 		results = RestaurantSearch(City=loc,Cuisine=cuisine)
+		
 		response=""
 		if results.shape[0] == 0:
 			response= "no results"
@@ -43,3 +51,15 @@ class ActionSendMail(Action):
 		MailID = tracker.get_slot('mail_id')
 		sendmail(MailID,response)
 		return [SlotSet('mail_id',MailID)]
+
+
+class ActionSearchLocation(Action):
+	def name(self):
+		return 'action_search_location'
+
+	def run(self, dispatcher, tracker, domain):
+		loc = tracker.get_slot('location')
+		if ("loc" not in WeOperate): 
+			dispatcher.utter_message ("Sorry, we don’t operate in this city. Can you please specify some other location") 
+			dispatcher.utter_ask_location_SomeOtherLocation()
+			return [SlotSet('location',loc)]		

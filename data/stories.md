@@ -129,3 +129,9 @@
     - slot{"location": "delhi"}
 * affirm
     - utter_goodbye
+
+## Story_Rishikesh_Sample_Path
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location_SomeOtherLocation
