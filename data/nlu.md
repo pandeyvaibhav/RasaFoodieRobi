@@ -106,6 +106,30 @@
 - kalkatta
 - kolkatta
 
+## synonym:Ghaziabad
+- gaziabad
+
+## synonym:Vadodara
+- vadodara
+- baroda
+
+## synonym:Ahmedabad
+- ahemedabad
+- amdabad
+- ahmedabad
+
+## synonym:vizag
+- Vizag
+- Visakhapatnam
+- visakhapatnam
+
+
+## synonym:Pune
+- Poona
+- Puna
+- poona
+- puna
+
 ## synonym:chinese
 - chines
 - Chinese
