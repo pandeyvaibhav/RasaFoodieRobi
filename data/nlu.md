@@ -109,9 +109,24 @@
 ## synonym:Ghaziabad
 - gaziabad
 
+## synonym:Mysore
+- Mysuru
+- mysur
+- mysore
+
+## synonym:Varanasi
+- Banaras
+- banaras
+- varanasi
+
 ## synonym:Vadodara
 - vadodara
 - baroda
+
+## synonym:Puducherry
+- Pndicherry
+- Pondicherry
+- puducherry
 
 ## synonym:Ahmedabad
 - ahemedabad
@@ -141,6 +156,7 @@
 ## synonym:vegetarian
 - veggie
 - vegg
+- Veg
 
 ## regex:greet
 - hey[^\s]*
