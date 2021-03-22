@@ -1,137 +1,327 @@
-## complete path
+## Story Delhi_Chinese
 * greet
     - utter_greet
 * restaurant_search
     - utter_ask_location
 * restaurant_search{"location": "delhi"}
     - slot{"location": "delhi"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "chinese"}
     - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 3003 to 700"}
     - action_search_restaurants
-    - slot{"location": "delhi"}
-    - utter_goodbye
     - export
 
-## location specified
+## Story Bokaro_Chinese
 * greet
     - utter_greet
-* restaurant_search{"location": "delhi"}
-    - slot{"location": "delhi"}
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Bokaro Steel City"}
+    - slot{"location": "Bokaro Steel City"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "chinese"}
     - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
+    - action_search_restaurants
+* affirm
+    - utter_goodbye
+* goodbye
+    - export
+
+## Story -Delhi_Mexican
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "delhi"}
+    - slot{"location": "delhi"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "mexican"}
+    - slot{"cuisine": "mexican"}
+    - utter_ask_budget
+* restaurant_search{"budget": "more than 700"}
+    - slot{"budget": "more than 700"}
     - action_search_restaurants
 * affirm
     - utter_goodbye
     - export
 
-## complete path 2
+## Story -Chennai_SouthIndian
 * greet
     - utter_greet
 * restaurant_search
     - utter_ask_location
-* restaurant_search{"location": "delhi"}
-    - slot{"location": "delhi"}
+* restaurant_search{"location": "chennai"}
+    - slot{"location": "chennai"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
     - utter_ask_cuisine
-* restaurant_search{"cuisine": "North Indian"}
-    - slot{"cuisine": "North Indian"}
-    - action_search_restaurants
-    - utter_goodbye
+* restaurant_search{"cuisine": "south indian"}
+    - slot{"cuisine": "south indian"}
+    - utter_ask_budget
 
-## complete path 3
-* greet
-    - utter_greet
-* restaurant_search
-    - utter_ask_location
-* restaurant_search{"location": "italy"}
-    - slot{"location": "italy"}
-	- utter_ask_cuisine
-* restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
     - action_search_restaurants
-* goodbye
+* affirm
     - utter_goodbye
-
-## complete path 4
-* greet
-    - utter_greet
-* restaurant_search
-    - utter_ask_location
-* restaurant_search{"location": "delhi"}
-    - slot{"location": "delhi"}
-    - utter_ask_cuisine
-* restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
-    - action_search_restaurants
-    - slot{"location": "delhi"}
     - export
 
-
-## interactive_story_1
+## Story Bangalore_NorthIndian
 * greet
     - utter_greet
-* restaurant_search{"location": "mumbai"}
-    - slot{"location": "mumbai"}
+* restaurant_search
+    - utter_ask_location
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Bangalore"}
+    - slot{"location": "Bangalore"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "north indian"}
+    - slot{"cuisine": "north indian"}
+    - utter_ask_budget
+* restaurant_search{"budget": "more than 700"}
+    - slot{"budget": "more than 700"}
+    - action_search_restaurants
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* goodbye
+    - export
+
+## Story Bangalore_Chinese
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Bangalore"}
+    - slot{"location": "Bangalore"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "chinese"}
     - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
     - action_search_restaurants
-    - slot{"location": "mumbai"}
-* stop
+* affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* affirm
+* goodbye
+    - utter_goodbye
+    - export
 
-## interactive_story_1
+## Story -Pune_Chinese
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "Pune"}
+    - slot{"location": "Pune"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
+    - action_search_restaurants
+* affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* goodbye
+    - utter_goodbye
+    - export
+
+## Story Mumbai_Max
 * greet
     - utter_greet
 * restaurant_search
     - utter_ask_location
 * restaurant_search{"location": "mumbai"}
     - slot{"location": "mumbai"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "mexican"}
+    - slot{"cuisine": "mexican"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
+    - action_search_restaurants
+* affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* goodbye
+    - utter_goodbye
+    - export
+
+## Story -Kolkata_Chinese
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "kolkata"}
+    - slot{"location": "kolkata"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
+    - action_search_restaurants
+* affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* affirm
+    - utter_goodbye
+    - export
+
+## Story -Chennai_American
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location": "chennai"}
+    - slot{"location": "chennai"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "american"}
+    - slot{"cuisine": "american"}
+    - utter_ask_budget
+* restaurant_search{"budget": "more than 700"}
+    - slot{"budget": "more than 700"}
+    - action_search_restaurants
+* affirm
+    - utter_ask_for_email_to_send
+* goodbye
+    - utter_goodbye
+    - export
+
+## Story -Mumbai_Italian
+* greet
+    - utter_greet
+* restaurant_search{"location": "mumbai"}
+    - slot{"location": "mumbai"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "Italian"}
     - slot{"cuisine": "Italian"}
+    - utter_ask_budget
+* restaurant_search{"budget": "more than 700"}
+    - slot{"budget": "more than 700"}
     - action_search_restaurants
-    - slot{"location": "mumbai"}
+* affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* goodbye
+    - utter_goodbye
+    - export
 
-## interactive_story_1
+## Story -Bokaro_Budget
 * greet
     - utter_greet
-* restaurant_search{"cuisine": "chinese", "location": "delhi"}
+* restaurant_search{"cuisine": "chinese", "location": "Bokaro Steel City"}
     - slot{"cuisine": "chinese"}
-    - slot{"location": "delhi"}
+    - slot{"location": "Bokaro Steel City"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_budget
+* restaurant_search{"budget": "between 300 to 700"}
+    - slot{"budget": "between 300 to 700"}
     - action_search_restaurants
-    - slot{"location": "delhi"}
 * affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* goodbye
     - utter_goodbye
-    
-    
-## happy_path
+    - export
+
+## Story -Bokaro_Chinese
 * greet
     - utter_greet
-* restaurant_search{"cuisine": "italian", "location": "mumbai"}
-    - slot{"cuisine": "italian"}
-    - slot{"location": "mumbai"}
-    - action_search_restaurants
-    - slot{"location": "mumbai"}
-* affirm
-    - utter_goodbye
-
-
-## interactive_story_1
-* greet
-    - utter_greet
+* restaurant_search{"cuisine": "chinese", "location": "Bokaro Steel City"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "Bokaro Steel City"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
 * restaurant_search{"cuisine": "chinese"}
     - slot{"cuisine": "chinese"}
-    - utter_ask_location
-* restaurant_search{"location": "delhi"}
-    - slot{"location": "delhi"}
+    - utter_ask_budget
+* restaurant_search{"budget": "lesser than 300"}
+    - slot{"budget": "lesser than 300"}
     - action_search_restaurants
-    - slot{"location": "delhi"}
 * affirm
+    - utter_ask_for_email_to_send
+* affirm
+    - utter_ask_email_address
+* affirm{"email": "vaibhavapk@gmail.com"}
+    - slot{"email": "vaibhavapk@gmail.com"}
+    - action_send_mail
+* goodbye
     - utter_goodbye
+    - export
 
-## Story_Rishikesh_Sample_Path
+## Story -Bokaro_SouthIndian
 * greet
     - utter_greet
-* restaurant_search
-    - utter_ask_location_SomeOtherLocation
+* restaurant_search{"location": "Bokaro Steel City"}
+    - slot{"location": "Bokaro Steel City"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "south indian"}
+    - slot{"cuisine": "south indian"}
+    - utter_ask_budget
+* restaurant_search{"budget": "more than 700"}
+    - slot{"budget": "more than 700"}
+    - action_search_restaurants
+* goodbye
+    - utter_goodbye
+    - export
+

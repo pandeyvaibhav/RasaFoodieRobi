@@ -1,17 +1,23 @@
 ## intent:affirm
 - yes
 - yep
+- yeap
 - yeah
 - indeed
 - that's right
 - ok
 - great
+- got it
+- got it, thanks
 - right, thank you
 - correct
 - great choice
 - sounds really good
 - thanks
 - thanks
+- thnks
+- thanx
+- thnx
 
 ## intent:goodbye
 - bye
@@ -30,16 +36,26 @@
 - hello
 - hi
 - good morning
+- good afternoon
 - good evening
 - dear sir
 - hi
 - hi
+- hola
+- helo
+- halo
+- ola
+- hellos
 - hello
+- hi ya
+- hey ya
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
 - I want to grab lunch
 - I am searching for a dinner spot
+- Suggest me some good restaurants in [Rishikesh](location).
+- Suggest me some good restaurants in [Haridwar](location).
 - I am looking for some restaurants in [Delhi](location).
 - I am looking for some restaurants in [Bangalore](location)
 - show me [chinese](cuisine) restaurants
@@ -137,7 +153,6 @@
 - Vizag
 - Visakhapatnam
 - visakhapatnam
-
 
 ## synonym:Pune
 - Poona

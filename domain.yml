@@ -6,6 +6,7 @@ intents:
 - restaurant_search
 - greet
 - affirm
+- budget
 - goodbye
 - stop
 entities:
@@ -20,6 +21,22 @@ slots:
   location:
     type: text
     influence_conversation: true
+  location_found:
+    type: categorical
+    influence_conversation: true
+    values:
+    - yes
+    - no
+  email:
+    type: text
+    influence_conversation: true
+  budget:
+    type: categorical
+    influence_conversation: true
+    values:
+    - lesser than 300
+    - between 300 to 700
+    - more than 700
 responses:
   utter_ask_cuisine:
   - buttons:
@@ -52,15 +69,32 @@ responses:
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
   utter_ask_location_SomeOtherLocation:
-    - text: Sorry, we don’t operate in this city. Can you please specify some other location
+  - text: Sorry, we don’t operate in this city. Can you please specify some other location
+  utter_ask_email_address:
+  - text: |
+      May I have your email id please ? 
+  utter_ask_budget:
+  - text: |-
+      What's the average budget for two people 
+      1. Lesser than 300 
+      2. between 300 to 700
+      3. More than 700
+  utter_ask_for_email_to_send:
+  - text: |
+      Would you like to have the details of the top 10 restaurants on email ? 
+  utter_not_operational:
+  - text: We do not operate in that area yet
 actions:
 - action_search_restaurants
 - action_send_mail
-- action_search_location
+- action_validate_location
+- utter_ask_budget
 - utter_ask_cuisine
+- utter_ask_email_address
+- utter_ask_for_email_to_send
 - utter_ask_howcanhelp
-- utter_ask_location_SomeOtherLocation
 - utter_ask_location
 - utter_default
 - utter_goodbye
 - utter_greet
+- utter_not_operational

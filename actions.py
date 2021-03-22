@@ -22,13 +22,8 @@ class ActionSearchRestaurants(Action):
 		return 'action_search_restaurants'
 
 	def run(self, dispatcher, tracker, domain):
-		#config={ "user_key":"f4924dc9ad672ee8c4f8c84743301af5"}
 		loc = tracker.get_slot('location')
-		if ("loc" not in WeOperate): 
-			dispatcher.utter_message ("Sorry, we don’t operate in this city. Can you please specify some other location") 
-			dispatcher.utter_ask_location_SomeOtherLocation()
-			return [SlotSet('location',loc)]
-			
+					
 		cuisine = tracker.get_slot('cuisine')
 		results = RestaurantSearch(City=loc,Cuisine=cuisine)
 		
@@ -55,11 +50,34 @@ class ActionSendMail(Action):
 
 class ActionSearchLocation(Action):
 	def name(self):
-		return 'action_search_location'
+		return 'action_validate_location'
 
 	def run(self, dispatcher, tracker, domain):
 		loc = tracker.get_slot('location')
-		if ("loc" not in WeOperate): 
-			dispatcher.utter_message ("Sorry, we don’t operate in this city. Can you please specify some other location") 
-			dispatcher.utter_ask_location_SomeOtherLocation()
-			return [SlotSet('location',loc)]		
+
+		if loc.lower() in (city.lower() for city in WeOperate):
+			return [SlotSet('location_found',"yes")]
+		else:
+			
+			return [SlotSet('location_found',"no")]	
+
+
+class ActionGetCuisineSlection(Action):
+	def name(self):
+		return 'action_get_cuisine'
+	
+	def run(self,dispatcher,tracker,domain):
+		val=tracker.get_slot('num')
+		cuisines=['chinese','mexican','italian','american','south indian','north indian']
+		
+		return [SlotSet('cuisine',cuisines[int(val)-1])]
+
+class ActionGetPriceSelection(Action):
+	def name(self):
+		return 'action_get_price'
+	
+	def run(self,dispatcher,tracker,domain):
+		val=tracker.get_slot('num')
+		temp_dict={'1':[0,300],'2':[300,700],'3':[700]}
+		
+		return [SlotSet('price',temp_dict[str(val)])]
