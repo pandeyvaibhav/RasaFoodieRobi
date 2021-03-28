@@ -4,17 +4,22 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - restaurant_search
+- location
 - greet
-- affirm
 - budget
+- affirm
 - goodbye
 - stop
+- cuisine
 entities:
 - cuisine
 - email
 - location
 - price
 slots:
+  numofpeople:
+    type: NumberOfPeople.NumberOfPeopleSlot
+    influence_conversation: true
   cuisine:
     type: text
     influence_conversation: true
@@ -30,14 +35,26 @@ slots:
   email:
     type: text
     influence_conversation: true
+  price:
+    type: text
+    influence_conversation: true
   budget:
     type: categorical
     influence_conversation: true
     values:
-    - lesser than 300
+    - less than 300
     - between 300 to 700
     - more than 700
 responses:
+  utter_ask_budget:
+  - text: What's the average budget for two people?
+    buttons:
+    - title: less than 300
+      payload: less than 300
+    - title: between 300 to 700
+      payload: between 300 to 700
+    - title: more than 700
+      payload: more than 700
   utter_ask_cuisine:
   - buttons:
     - payload: Chinese
@@ -71,20 +88,19 @@ responses:
   utter_ask_location_SomeOtherLocation:
   - text: Sorry, we don’t operate in this city. Can you please specify some other location
   utter_ask_email_address:
-  - text: |
-      May I have your email id please ? 
-  utter_ask_budget:
-  - text: |-
-      What's the average budget for two people 
-      1. Lesser than 300 
-      2. between 300 to 700
-      3. More than 700
+  - text: May I have your email id please ?
   utter_ask_for_email_to_send:
   - text: |
       Would you like to have the details of the top 10 restaurants on email ? 
   utter_not_operational:
-  - text: We do not operate in that area yet
+  - text: We do not operate in that area yet, Could you please select some other location?
+  utter_debug1:
+  - text: debug1?
+  utter_debug2:
+  - text: debug2?
 actions:
+- action_get_cuisine
+- action_get_price
 - action_search_restaurants
 - action_send_mail
 - action_validate_location
@@ -94,6 +110,8 @@ actions:
 - utter_ask_for_email_to_send
 - utter_ask_howcanhelp
 - utter_ask_location
+- utter_debug1
+- utter_debug2
 - utter_default
 - utter_goodbye
 - utter_greet

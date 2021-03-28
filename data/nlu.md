@@ -19,6 +19,42 @@
 - thanx
 - thnx
 
+## intent:budget
+- under 300
+- around 300
+- around 400
+- around 500
+- between 300 and 700
+- more than 700
+- less than 300
+- lesser than 300
+- below 300
+- greater than 700
+- b/w 300 and 700
+
+## intent:budget
+
+## intent:not
+- nah
+- no
+- don't
+- no thanks
+- nah bro
+- no no
+- won't
+- do not
+- false
+- sounds bad
+- not at all
+- not
+- reject
+- nope
+- no need
+- [no](not) thank you
+- no dont
+- n
+- no don't send
+
 ## intent:goodbye
 - bye
 - goodbye
@@ -49,6 +85,16 @@
 - hello
 - hi ya
 - hey ya
+## intent:cuisine
+- [South Indian](cuisine)
+- [north indian](cuisine)
+- [mexican](cuisine)
+- [african](cuisine)
+- [american](cuisine)
+- i'll prefer [italian](cuisine)
+- i will prefer [chinese](cuisine)
+- i prefer [north](cuisine)
+- [North Indian](cuisine)
 
 ## intent:restaurant_search
 - i'm looking for a place to eat
@@ -90,7 +136,144 @@
 - can you find me a [chinese](cuisine) restaurant
 - [delhi](location)
 - please find me a restaurant in [ahmedabad](location)
-- please show me a few [italian](cuisine) restaurants in [bangalore](location)
+- please show m
+
+## intent:location
+- in [bengaluru](location)
+- [delhi](location)
+- [dharmavaram](location)
+- anywhere near to [jalandhar](location)
+- in [ludhiana](location)
+- at [hyderabad](location)
+- near [vijayawada](location)
+- inside [bombay](location)
+- in [american](cuisine)
+- [jodhpur](location)
+- [varanasi](location)
+- [jhansi](location) area
+- in [ahmedabad](location)
+- [chennai](location)
+- [madras](location) area
+- in [hyderabad](location)
+- [kolkata](location)
+- [culcatta](location)
+- [mumbai](location)
+- in [bombay](location)
+- [agra](location)
+- around [ajmer](location)
+- [aligarh](location) area
+- in [amravati](location)
+- [amaravati](location)
+- around [amritsar](location)
+- [asansol](location)
+- in [aurangabad](location)
+- [bareilly](location)
+- [belgaum](location)
+- around [bhavnagar](location)
+- in [bhiwandi](location)
+- [bhopal](location)
+- [bhubaneswar](location)
+- in [bikaner](location)
+- [bilaspur](location)
+- [bokaro](location)
+- [chandigarh](location)
+- in [coimbatore](location)
+- [cuttack](location)
+- close to [dehradun](location)
+- [dhanbad](location)
+- in and around [bhilai](location)
+- [durgapur](location)
+- in [erode](location)
+- [faridabad](location)
+- [firozabad](location)
+- near to [ghaziabad](location)
+- in [gorakhpur](location)
+- [gulbarga](location)
+- [guntur](location)
+- [gwalior](location)
+- [gurgaon](location)
+- in [guwahati](location)
+- far from [hamirpur](location)
+- [hubli–dharwad](location)
+- [indore](location)
+- in [jabalpur](location)
+- [jammu](location)
+- [jamnagar](location)
+- area at [jamshedpur](location)
+- in [jhansi](location)
+- [kakinada](location)
+- [kannur](location)
+- [kanpur](location)
+- in [kochi](location)
+- from [kolhapur](location)
+- [kollam](location)
+- close to [kozhikode](location)
+- in [kurnool](location)
+- [ludhiana](location)
+- from [lucknow](location)
+- [rourkela](location)
+- in [ranchi](location)
+- closest to [rajahmundry](location)
+- [rajkot](location)
+- [raipur](location)
+- anywhere in [prayagraj](location)
+- at [purulia](location)
+- anywhere near [pondicherry](location)
+- [patna](location)
+- bear to [noida](location)
+- [nellore](location)
+- from [nashik](location)
+- [nanded](location)
+- anywhere [nagpur](location)
+- at [mysore](location)
+- near to [moradabad](location)
+- proximity to [meerut](location)
+- [mangalore](location)
+- [goa](location)
+- at [mathura](location)
+- anywhere at [malappuram](location)
+- close to [madurai](location)
+- [warangal](location)
+- at [vellore](location)
+- near [visakhapatnam](location)
+- close to [vijaywada](location)
+- [vijayawada](location)
+- at [vasai-virar](location)
+- [vadodara](location)
+- nearest [bijapur](location)
+- [ujjain](location)
+- close to [tiruppur](location)
+- at [thrissur](location)
+- anywhere close to [thiruvananthapuram](location)
+- [surat](location)
+- [srinagar](location)
+- at [solapur](location)
+- [siliguri](location)
+- [shimla](location)
+- at [salem](location)
+
+## intent:email
+- ['example@example.com](email)
+- myemail [hello@gmail.com](email)
+- to [jagadesh@gmail.com](email)
+- ping to [vicky@protonmail.com](email)
+- push to [admin@india.net](email)
+- [example@yahoomail.com](email)
+- send to [foodie@hotmail.com](email)
+- forward to [shrikant@somemail.com](email)
+- email to [someone@mailme.net](email)
+- [admin@iiitb.net](email)
+- [sheyyly@gmail.com](email)
+- [s.soma@gmail.com](email)
+- [chjan96@gmail.com](email)
+- [hksingh@protonmail.com](email)
+- [cpym@gmail.com](email)
+- yes send to [vaibhav@protonmail.com](email)
+- forward to [venkateshdevilvenky@gmail.com](email)
+- yes send to [srippnivas.soma@gmail.com](email)
+- mail to [refgh@cpanel.com](email)
+- [emaninternstav@gmail.com](email)
+- [nhsingh@gmail.com](email)
 
 ## synonym:4
 - four
@@ -100,6 +283,7 @@
 - nai dilli
 - dilli
 - delhi
+- Delhi
 - indraprastha
 
 ## synonym:bangalore
