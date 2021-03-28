@@ -34,14 +34,17 @@ class ActionSearchRestaurants(Action):
 		response=""
 		if results.shape[0] == 0:
 			print("No results found in this search!!")
-			response= "no results"
+			response= "No results found for the searched location"
 		else:
 			for restaurant in RestaurantSearch(loc,cuisine).iloc[:5].iterrows():
 				restaurant = restaurant[1]
-				response=response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Address']} with avg cost {restaurant['Average Cost for two']} \n\n"
-				
-		print("I got some restaurants")
-		return [SlotSet('location',loc)]
+				response = response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Address']} with avg cost {restaurant['Average Cost for two']} \n\n"
+			print("I got some restaurants in this search!!!")
+		
+		[SlotSet('location',loc)]
+		dispatcher.utter_message(str(response))
+
+		#return response
 
 class ActionSendMail(Action):
 	def name(self):
@@ -64,11 +67,12 @@ class ActionSearchLocation(Action):
 		print("Action: action_validate_location")
 
 		if loc.lower() in (city.lower() for city in WeOperate):
-			print("got loc")
-			[SlotSet('loc',loc)]
+			print("found loc")
+			[SlotSet('location_found',"yes")]
 			return [SlotSet('location_found',"yes")]
 		else:						
 			print("We do not operate in that area yet, Could you please select some other location?") 	
+			[SlotSet('location_found','no')]
 			return [SlotSet('location_found',"no")]
 
 class ActionGetCuisineSlection(Action):

@@ -7,6 +7,7 @@
     - utter_ask_cuisine
 * restaurant_search{"location": "Delhi"}
     - slot{"location": "Delhi"}
+    - action_validate_location
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "chinese"}
     - slot{"cuisine": "chinese"}
