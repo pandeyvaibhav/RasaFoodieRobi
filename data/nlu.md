@@ -352,6 +352,9 @@
 ## synonym:mid
 - moderate
 
+## synonym: Nashik
+- Nasik
+
 ## synonym:vegetarian
 - veggie
 - vegg

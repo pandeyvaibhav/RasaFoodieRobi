@@ -9,7 +9,8 @@ import json
 
 ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
-WeOperate = ['Delhi', 'Gurgaon', 'Noida', 'Faridabad', 'Allahabad', 'Bhubaneshwar', 'Mangalore', 'Mumbai', 'Ranchi', 'Patna', 'Mysore', 'Aurangabad', 'Amritsar', 'Puducherry', 'Varanasi', 'Nagpur', 'Vadodara', 'Dehradun', 'Vizag', 'Agra', 'Ludhiana', 'Kanpur', 'Lucknow', 'Surat', 'Kochi', 'Indore', 'Ahmedabad', 'Coimbatore', 'Chennai', 'Guwahati', 'Jaipur', 'Hyderabad', 'Bangalore', 'Nashik', 'Pune', 'Kolkata', 'Bhopal', 'Goa', 'Chandigarh', 'Ghaziabad', 'Ooty', 'Gangtok', 'Shimla']
+WeOperate = ['Agra', 'Ahmedabad','Allahabad','Amritsar','Aurangabad','Bangalore','Bhopal','Bhubaneshwar', 'Chandigarh', 'Chennai', 'Coimbatore', 'Dehradun', 'Faridabad', 'Gangtok', 'Ghaziabad', 'Goa', 'Gurgaon', 'Guwahati', 'Hyderabad', 'Indore', 'Jaipur', 'Kanpur', 'Kochi', 'Kolkata', 'Lucknow', 'Ludhiana', 'Mangalore', 
+'Mohali', 'Mumbai', 'Mysore', 'Nagpur', 'Nasik', 'Delhi','Noida', 'Ooty', 'Panchkula', 'Patna', 'Puducherry', 'Pune', 'Ranchi', 'Secunderabad', 'Shimla', 'Surat','Vadodara', 'Varanasi', 'Vizag']
 
 def RestaurantSearch(City,Cuisine):
 	TEMP = ZomatoData[(ZomatoData['Cuisines'].apply(lambda x: Cuisine.lower() in x.lower())) & (ZomatoData['City'].apply(lambda x: City.lower() in x.lower()))]
@@ -71,8 +72,9 @@ class ActionSearchLocation(Action):
 			[SlotSet('location_found',"yes")]
 			return [SlotSet('location_found',"yes")]
 		else:						
-			print("We do not operate in that area yet, Could you please select some other location?") 	
-			[SlotSet('location_found','no')]
+			print("We do not operate in that area yet, Could you please select some other location?")
+			dispatcher.utter_message("We do not operate in that area yet, Could you please select some other location?")
+ 			
 			return [SlotSet('location_found',"no")]
 
 class ActionGetCuisineSlection(Action):
@@ -81,7 +83,7 @@ class ActionGetCuisineSlection(Action):
 	
 	def run(self,dispatcher,tracker,domain):
 		val=tracker.get_slot('num')
-		cuisines=['Chinese','Mexican','Italian','American','Thai', 'South Indian','North Indian']
+		cuisines=['Chinese','Mexican','Italian','American', 'South Indian','North Indian']
 		print("Action: action_get_cuisine")
 		return [SlotSet('cuisine',cuisines[int(val)-1])]
 

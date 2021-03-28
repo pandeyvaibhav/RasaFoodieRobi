@@ -65,8 +65,6 @@ responses:
       title: Italian
     - payload: American
       title: American
-    - payload: Thai
-      title: Thai
     - payload: South Indian
       title: South Indian
     - payload: North Indian
