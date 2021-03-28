@@ -33,7 +33,7 @@ class ActionSearchRestaurants(Action):
 		print(results)	
 		response=""
 		if results.shape[0] == 0:
-			print("No results found")
+			print("No results found in this search!!")
 			response= "no results"
 		else:
 			for restaurant in RestaurantSearch(loc,cuisine).iloc[:5].iterrows():
