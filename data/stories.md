@@ -26,3 +26,12 @@
     - action_send_mail
     - export
 
+## Story Jabalpur_Chinese
+* greet
+    - utter_greet
+* restaurant_search{"location": "Jabalpur"}
+    - slot{"location": "Jabalpur"}
+    - action_validate_location
+    - utter_not_operational
+
+

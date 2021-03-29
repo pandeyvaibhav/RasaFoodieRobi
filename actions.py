@@ -29,12 +29,16 @@ class ActionSearchRestaurants(Action):
 		price = tracker.get_slot('price')
 		print(price)
 		if price == "300":
-		    budget = 300
+		    budget_min = 0
+		    budget_max = 300
 		elif price == "700":
-		    budget = 700
+		    budget_min = 300
+		    budget_max = 700
 		else :
-		    budget=700
-		print(budget)
+		    budget_min=700
+		    budget_max=50000
+
+		print(budget_max)
 
 		print("Action: action_search_restaurants")
 		#print("Action: action_search_restaurants -- loc --" + loc + "-- cuisinse --" + cuisine + " -- budget --" + budget)
@@ -43,7 +47,7 @@ class ActionSearchRestaurants(Action):
 		response=""
 		if results.shape[0] == 0:
 			print("No results found in this search!!")
-			response= "No results found for the searched location"
+			response= "We do not operate in that area yet, Could you please select some other location?"
 		else:
 			for restaurant in RestaurantSearch(loc,cuisine).iloc[:5].iterrows():
 				restaurant = restaurant[1]
@@ -104,19 +108,19 @@ class ActionGetPriceSelection(Action):
 		val=tracker.get_slot('price')
 		print("Value found -" + val)
 		print("Action: action_get_price")
-		print("num: - ")
-		#temp_dict={'300':[0,300],'301':[300,700],'700':[700]}
-		#print(temp_dict[str(val)])
 
 		price = tracker.get_slot('price')
 		print(price)
 		if price == "300":
-		    budget1 = 300
+		    budget_min = 0
+		    budget_max = 300
 		elif price == "700":
-		    budget1 = 699
+		    budget_min = 300
+		    budget_max = 700
 		else :
-		    budget1=700
+		    budget_min=700
+		    budget_max=50000
 
-		print(budget1)
+		print(budget_max)
 
-		return [SlotSet('budget',budget1)]
+		return [SlotSet('budget',budget_max)]

@@ -32,8 +32,6 @@
 - greater than 700
 - b/w 300 and 700
 
-## intent:budget
-
 ## intent:not
 - nah
 - no

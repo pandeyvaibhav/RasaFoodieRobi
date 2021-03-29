@@ -3,20 +3,20 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- goodbye
+- greet
 - restaurant_search
 - location
-- greet
 - budget
 - affirm
-- goodbye
 - stop
 - cuisine
 entities:
+- budget
 - cuisine
 - email
 - location
 - price
-- budget
 slots:
   numofpeople:
     type: NumberOfPeople.NumberOfPeopleSlot
@@ -48,8 +48,11 @@ slots:
     - more than 700
 responses:
   utter_ask_budget:
-  - text: "What's the average budget for two people \n1. Lesser than 300 \n2. between\
-      \ 300 to 700\n3. More than 700"
+  - text: |-
+      What's the average budget for two people 
+      1. Lesser than 300 
+      2. between 300 to 700
+      3. More than 700
   utter_ask_cuisine:
   - buttons:
     - payload: Chinese
@@ -78,8 +81,6 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
-  utter_ask_location_SomeOtherLocation:
-  - text: Sorry, we don’t operate in this city. Can you please specify some other location
   utter_ask_email_address:
   - text: May I have your email id please ?
   utter_ask_for_email_to_send:
