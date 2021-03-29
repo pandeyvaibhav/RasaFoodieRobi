@@ -32,6 +32,21 @@
 * restaurant_search{"location": "Jabalpur"}
     - slot{"location": "Jabalpur"}
     - action_validate_location
+    - slot{"location_found": "no"}
     - utter_not_operational
 
 
+
+* greet
+    - utter_greet
+* restaurant_search{"location": "Delhi"}
+    - slot{"location": "Delhi"}
+    - action_validate_location
+    - slot{"location_found": "yes"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_budget
+* budget{"price": "300"}
+    - slot{"price": "300"}
+    - action_search_restaurants

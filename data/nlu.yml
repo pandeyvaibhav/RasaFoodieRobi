@@ -3,6 +3,21 @@ nlu:
 - intent: greet
   examples: |
     - Hi
+    - HI
 - intent: goodbye
   examples: |
     - Bye Bye
+- intent: restaurant_search
+  examples: |
+    - suggest me restaurants in [Delhi](location)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - Suggest me restaurants in [Delhi](location)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+- intent: budget
+  examples: |
+    - More than 700
+    - Lesser than [300](price)
+    - Less than [300](price)
+- synonym: chinese
+  examples: |
+    - Chinese

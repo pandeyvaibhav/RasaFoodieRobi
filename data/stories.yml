@@ -7,3 +7,30 @@ stories:
   - action: utter_greet
   - intent: goodbye
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: Delhi
+  - slot_was_set:
+    - location: Delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - location_found: yes
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: budget
+    entities:
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: action_search_restaurants
+

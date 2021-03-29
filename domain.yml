@@ -3,11 +3,11 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- goodbye
 - greet
-- restaurant_search
-- location
 - budget
+- restaurant_search
+- goodbye
+- location
 - affirm
 - stop
 - cuisine
@@ -15,8 +15,8 @@ intents:
 entities:
 - budget
 - cuisine
-- mail_id
 - location
+- mail_id
 - price
 slots:
   numofpeople:
@@ -100,10 +100,10 @@ actions:
 - action_validate_location
 - utter_ask_budget
 - utter_ask_cuisine
-- utter_ask_ifmail
-- utter_ask_mailid
 - utter_ask_howcanhelp
+- utter_ask_ifmail
 - utter_ask_location
+- utter_ask_mailid
 - utter_debug1
 - utter_debug2
 - utter_default
