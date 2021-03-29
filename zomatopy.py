@@ -221,8 +221,6 @@ class Zomato:
         Takes either query, latitude and longitude or cuisine as input.
         Returns a list of Restaurant IDs.
         """
-        
-
         cuisines = "%2C".join(cuisines.split(","))
         if str(limit).isalpha() == True:
             raise ValueError('LimitNotInteger')

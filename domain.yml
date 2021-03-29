@@ -11,10 +11,11 @@ intents:
 - affirm
 - stop
 - cuisine
+- email
 entities:
 - budget
 - cuisine
-- email
+- mail_id
 - location
 - price
 slots:
@@ -33,7 +34,7 @@ slots:
     values:
     - yes
     - no
-  email:
+  mail_id:
     type: text
     influence_conversation: true
   price:
@@ -81,11 +82,10 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
-  utter_ask_email_address:
-  - text: May I have your email id please ?
-  utter_ask_for_email_to_send:
-  - text: |
-      Would you like to have the details of the top 10 restaurants on email ? 
+  utter_ask_ifmail:
+  - text: Do you want the results (top 10) in your mail?
+  utter_ask_mailid:
+  - text: Please share your mail_id
   utter_not_operational:
   - text: We do not operate in that area yet, Could you please select some other location?
   utter_debug1:
@@ -100,8 +100,8 @@ actions:
 - action_validate_location
 - utter_ask_budget
 - utter_ask_cuisine
-- utter_ask_email_address
-- utter_ask_for_email_to_send
+- utter_ask_ifmail
+- utter_ask_mailid
 - utter_ask_howcanhelp
 - utter_ask_location
 - utter_debug1

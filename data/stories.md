@@ -21,8 +21,8 @@
 * restaurant_search{"budget": "more than 700"}
     - slot{"budget": "3"}
     - action_search_restaurants
-* affirm{"email": "noresponse@vp.com"}
-    - slot{"email": "noresponse@vp.com"}
+* affirm{"mail_id": "noresponse@vp.com"}
+    - slot{"mail_id": "noresponse@vp.com"}
     - action_send_mail
     - export
 

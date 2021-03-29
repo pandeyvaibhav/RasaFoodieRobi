@@ -7,23 +7,39 @@ from rasa_sdk.events import SlotSet
 import pandas as pd
 import json
 
+import smtplib
+from email.message import EmailMessage
 
 ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
-WeOperate = ['Agra', 'Ahmedabad','Allahabad','Amritsar','Aurangabad','Bangalore','Bhopal','Bhubaneshwar', 'Chandigarh', 'Chennai', 'Coimbatore', 'Dehradun', 'Faridabad', 'Gangtok', 'Ghaziabad', 'Goa', 'Gurgaon', 'Guwahati', 'Hyderabad', 'Indore', 'Jaipur', 'Kanpur', 'Kochi', 'Kolkata', 'Lucknow', 'Ludhiana', 'Mangalore', 
-'Mohali', 'Mumbai', 'Mysore', 'Nagpur', 'Nasik', 'Delhi','Noida', 'Ooty', 'Panchkula', 'Patna', 'Puducherry', 'Pune', 'Ranchi', 'Secunderabad', 'Shimla', 'Surat','Vadodara', 'Varanasi', 'Vizag']
+WeOperate = ['New Delhi', 'Gurgaon', 'Noida', 'Faridabad', 'Allahabad', 'Bhubaneshwar', 'Mangalore', 'Mumbai', 'Ranchi', 'Patna', 'Mysore', 'Aurangabad', 'Amritsar', 'Puducherry', 'Varanasi', 'Nagpur', 'Vadodara', 'Dehradun', 'Vizag', 'Agra', 'Ludhiana', 'Kanpur', 'Lucknow', 'Surat', 'Kochi', 'Indore', 'Ahmedabad', 'Coimbatore', 'Chennai', 'Guwahati', 'Jaipur', 'Hyderabad', 'Bangalore', 'Nashik', 'Pune', 'Kolkata', 'Bhopal', 'Goa', 'Chandigarh', 'Ghaziabad', 'Ooty', 'Gangtok', 'Shimla']
 
 def RestaurantSearch(City,Cuisine):
 	TEMP = ZomatoData[(ZomatoData['Cuisines'].apply(lambda x: Cuisine.lower() in x.lower())) & (ZomatoData['City'].apply(lambda x: City.lower() in x.lower()))]
 	return TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
+
+def sendmail(MailID,response):
+	smtp_connect = smtplib.SMTP("smtp.gmail.com", 587)
+	smtp_connect.starttls()
+	smtp_connect.login("mlc20foodie@gmail.com","Random@123")
+	msg = EmailMessage()
+	msg['Subject'] = "Results of your search on Foodie"
+	msg['From'] = "mlc20foodie@gmail.com"
+
+	msg.set_content(response)
+	msg['To'] = MailID
+
+	smtp_connect.send_message(msg)
+	smtp_connect.quit()
+	return []
 
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
 
 	def run(self, dispatcher, tracker, domain):
-		loc = tracker.get_slot('location')	
-		print(loc)				
+		#config={ "user_key":"f4924dc9ad672ee8c4f8c84743301af5"}
+		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
 		print(cuisine)
 		price = tracker.get_slot('price')
@@ -51,7 +67,7 @@ class ActionSearchRestaurants(Action):
 		else:
 			for restaurant in RestaurantSearch(loc,cuisine).iloc[:5].iterrows():
 				restaurant = restaurant[1]
-				response = response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Address']} with avg cost {restaurant['Average Cost for two']} \n\n"
+				response=response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Aggregate Rating']} with avg cost {restaurant['Average Cost for two']} \n\n"
 			print("I got some restaurants in this search!!!")
 		
 		[SlotSet('location',loc)]
@@ -64,12 +80,22 @@ class ActionSendMail(Action):
 		return 'action_send_mail'
 
 	def run(self, dispatcher, tracker, domain):
-	    recipient = tracker.get_slot('email')
-
-	    top10 = restaurants.head(10)
-	    print("got this correct")
-	    send_email(recipient, top10)
-	    dispatcher.utter_message("Have a great day!")
+		MailID = tracker.get_slot('mail_id')
+		loc = tracker.get_slot('location')
+		cuisine = tracker.get_slot('cuisine')
+		results = RestaurantSearch(City=loc,Cuisine=cuisine)
+		
+		response = "Hi there! "
+		if results.shape[0] == 0:
+			response = response + F"No results found for your query."
+		else:
+			for restaurant in RestaurantSearch(loc,cuisine).iloc[:10].iterrows():
+				restaurant = restaurant[1]
+				response=response + F"Here are the results of your query.\n" + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Address']} with avg cost {restaurant['Average Cost for two']} \n\n"
+		sendmail(MailID,response)
+		dispatcher.utter_message("Email sent as per request!")
+		dispatcher.utter_message("Have a great day!")
+		return [SlotSet('mail_id',MailID)]
 
 class ActionSearchLocation(Action):
 	def name(self):

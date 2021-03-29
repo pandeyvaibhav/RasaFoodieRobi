@@ -73,8 +73,6 @@
 - good afternoon
 - good evening
 - dear sir
-- hi
-- hi
 - hola
 - helo
 - halo
@@ -251,27 +249,27 @@
 - at [salem](location)
 
 ## intent:email
-- ['example@example.com](email)
-- myemail [hello@gmail.com](email)
-- to [jagadesh@gmail.com](email)
-- ping to [vicky@protonmail.com](email)
-- push to [admin@india.net](email)
-- [example@yahoomail.com](email)
-- send to [foodie@hotmail.com](email)
-- forward to [shrikant@somemail.com](email)
-- email to [someone@mailme.net](email)
-- [admin@iiitb.net](email)
-- [sheyyly@gmail.com](email)
-- [s.soma@gmail.com](email)
-- [chjan96@gmail.com](email)
-- [hksingh@protonmail.com](email)
-- [cpym@gmail.com](email)
-- yes send to [vaibhav@protonmail.com](email)
-- forward to [venkateshdevilvenky@gmail.com](email)
-- yes send to [srippnivas.soma@gmail.com](email)
-- mail to [refgh@cpanel.com](email)
-- [emaninternstav@gmail.com](email)
-- [nhsingh@gmail.com](email)
+- ['example@example.com](mail_id)
+- myemail [hello@gmail.com](mail_id)
+- to [jagadesh@gmail.com](mail_id)
+- ping to [vicky@protonmail.com](mail_id)
+- push to [admin@india.net](mail_id)
+- [example@yahoomail.com](mail_id)
+- send to [foodie@hotmail.com](mail_id)
+- forward to [shrikant@somemail.com](mail_id)
+- email to [someone@mailme.net](mail_id)
+- [admin@iiitb.net](mail_id)
+- [sheyyly@gmail.com](mail_id)
+- [s.soma@gmail.com](mail_id)
+- [chjan96@gmail.com](mail_id)
+- [hksingh@protonmail.com](mail_id)
+- [cpym@gmail.com](mail_id)
+- yes send to [vaibhav@protonmail.com](mail_id)
+- forward to [venkateshdevilvenky@gmail.com](mail_id)
+- yes send to [srippnivas.soma@gmail.com](mail_id)
+- mail to [refgh@cpanel.com](mail_id)
+- [emaninternstav@gmail.com](mail_id)
+- [nihit.sh@gmail.com](mail_id)
 
 ## synonym:4
 - four
@@ -280,8 +278,6 @@
 - New Delhi
 - nai dilli
 - dilli
-- delhi
-- Delhi
 - indraprastha
 
 ## synonym:bangalore
@@ -324,11 +320,9 @@
 ## synonym:Puducherry
 - Pndicherry
 - Pondicherry
-- puducherry
 
 ## synonym:Ahmedabad
-- ahemedabad
-- amdabad
+ amdabad
 - ahmedabad
 
 ## synonym:vizag
