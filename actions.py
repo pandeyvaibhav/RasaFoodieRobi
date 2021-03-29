@@ -12,10 +12,19 @@ from email.message import EmailMessage
 
 ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
-WeOperate = ['New Delhi', 'Gurgaon', 'Noida', 'Faridabad', 'Allahabad', 'Bhubaneshwar', 'Mangalore', 'Mumbai', 'Ranchi', 'Patna', 'Mysore', 'Aurangabad', 'Amritsar', 'Puducherry', 'Varanasi', 'Nagpur', 'Vadodara', 'Dehradun', 'Vizag', 'Agra', 'Ludhiana', 'Kanpur', 'Lucknow', 'Surat', 'Kochi', 'Indore', 'Ahmedabad', 'Coimbatore', 'Chennai', 'Guwahati', 'Jaipur', 'Hyderabad', 'Bangalore', 'Nashik', 'Pune', 'Kolkata', 'Bhopal', 'Goa', 'Chandigarh', 'Ghaziabad', 'Ooty', 'Gangtok', 'Shimla']
+WeOperate = ['Agra', 'Ahmedabad','Allahabad','Amritsar','Aurangabad','Bangalore','Bhopal','Bhubaneshwar', 
+'Chandigarh', 'Chennai', 'Coimbatore', 'Dehradun', 'Faridabad', 'Gangtok', 'Ghaziabad', 'Goa', 
+'Gurgaon', 'Guwahati', 'Hyderabad', 'Indore', 'Jaipur', 'Kanpur', 'Kochi', 'Kolkata', 'Lucknow', 
+'Ludhiana', 'Mangalore', 
+'Mohali', 'Mumbai', 'Mysore', 'Nagpur', 'Nasik', 'Delhi','Noida', 'Ooty', 'Panchkula', 
+'Patna', 'Puducherry', 'Pune', 'Ranchi', 'Secunderabad', 'Shimla', 'Surat','Vadodara', 
+'Varanasi', 'Vizag']
 
 def RestaurantSearch(City,Cuisine):
 	TEMP = ZomatoData[(ZomatoData['Cuisines'].apply(lambda x: Cuisine.lower() in x.lower())) & (ZomatoData['City'].apply(lambda x: City.lower() in x.lower()))]
+	#Sorting in Descending order as asked in instructions.
+	TEMP.sort_values(by=['Aggregate rating'], ascending=False)
+	print(TEMP.head(5))
 	return TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
 
 def sendmail(MailID,response):
@@ -38,7 +47,6 @@ class ActionSearchRestaurants(Action):
 		return 'action_search_restaurants'
 
 	def run(self, dispatcher, tracker, domain):
-		#config={ "user_key":"f4924dc9ad672ee8c4f8c84743301af5"}
 		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
 		print(cuisine)
@@ -67,7 +75,7 @@ class ActionSearchRestaurants(Action):
 		else:
 			for restaurant in RestaurantSearch(loc,cuisine).iloc[:5].iterrows():
 				restaurant = restaurant[1]
-				response=response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Aggregate Rating']} with avg cost {restaurant['Average Cost for two']} \n\n"
+				response=response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Aggregate rating']} with avg cost {restaurant['Average Cost for two']} \n\n"
 			print("I got some restaurants in this search!!!")
 		
 		[SlotSet('location',loc)]
