@@ -14,7 +14,6 @@
 - great choice
 - sounds really good
 - thanks
-- thanks
 - thnks
 - thanx
 - thnx
@@ -78,7 +77,6 @@
 - halo
 - ola
 - hellos
-- hello
 - hi ya
 - hey ya
 ## intent:cuisine
@@ -133,6 +131,7 @@
 - [delhi](location)
 - please find me a restaurant in [ahmedabad](location)
 - please show m
+- [chinese](cuisine) restaurant information
 
 ## intent:location
 - in [bengaluru](location)
@@ -351,6 +350,14 @@
 - veggie
 - vegg
 - Veg
+
+## synonym:vizag
+- Vizag
+- Visakhapatnam
+- visakhapatnam
+
+## regex:email
+- ^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$
 
 ## regex:greet
 - hey[^\s]*

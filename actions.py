@@ -115,13 +115,11 @@ class ActionSearchLocation(Action):
 
 		if loc.lower() in (city.lower() for city in WeOperate):
 			print("found loc")
-			[SlotSet('location_found',"yes")]
-			return [SlotSet('location_found',"yes")]
+			return [SlotSet("location_found",True)]
 		else:						
 			print("We do not operate in that area yet, Could you please select some other location?")
 			dispatcher.utter_message("We do not operate in that area yet, Could you please select some other location?")
- 			
-			return [SlotSet('location_found',"no")]
+			return [SlotSet("location_found",False)]
 
 class ActionGetCuisineSlection(Action):
 	def name(self):

@@ -29,11 +29,9 @@ slots:
     type: text
     influence_conversation: true
   location_found:
-    type: categorical
+    type: bool
+    initial_value: false
     influence_conversation: true
-    values:
-    - yes
-    - no
   mail_id:
     type: text
     influence_conversation: true
