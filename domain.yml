@@ -16,6 +16,7 @@ entities:
 - email
 - location
 - price
+- budget
 slots:
   numofpeople:
     type: NumberOfPeople.NumberOfPeopleSlot
@@ -47,14 +48,8 @@ slots:
     - more than 700
 responses:
   utter_ask_budget:
-  - text: What's the average budget for two people?
-    buttons:
-    - title: less than 300
-      payload: less than 300
-    - title: between 300 to 700
-      payload: between 300 to 700
-    - title: more than 700
-      payload: more than 700
+  - text: "What's the average budget for two people \n1. Lesser than 300 \n2. between\
+      \ 300 to 700\n3. More than 700"
   utter_ask_cuisine:
   - buttons:
     - payload: Chinese

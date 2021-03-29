@@ -10,16 +10,19 @@
     - action_validate_location
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
+    - slot{"cuisine": "Chinese"}
     - utter_ask_budget
-* restaurant_search{"budget": "Less than 300"}
+* restaurant_search{"budget": "less than 300"}
     - slot{"budget": "1"}
     - action_search_restaurants
 * restaurant_search{"budget": "between 300 to 700"}
     - slot{"budget": "2"}
     - action_search_restaurants
-* restaurant_search{"budget": "More than 700"}
+* restaurant_search{"budget": "more than 700"}
     - slot{"budget": "3"}
     - action_search_restaurants
+* affirm{"email": "noresponse@vp.com"}
+    - slot{"email": "noresponse@vp.com"}
+    - action_send_mail
     - export
 

@@ -7,6 +7,10 @@ from rasa_sdk.events import SlotSet
 import pandas as pd
 import json
 
+from email_config import Config
+from flask_mail_check import send_email
+
+
 ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
 WeOperate = ['Agra', 'Ahmedabad','Allahabad','Amritsar','Aurangabad','Bangalore','Bhopal','Bhubaneshwar', 'Chandigarh', 'Chennai', 'Coimbatore', 'Dehradun', 'Faridabad', 'Gangtok', 'Ghaziabad', 'Goa', 'Gurgaon', 'Guwahati', 'Hyderabad', 'Indore', 'Jaipur', 'Kanpur', 'Kochi', 'Kolkata', 'Lucknow', 'Ludhiana', 'Mangalore', 
@@ -25,7 +29,14 @@ class ActionSearchRestaurants(Action):
 		print(loc)				
 		cuisine = tracker.get_slot('cuisine')
 		print(cuisine)
-		budget = tracker.get_slot('budget')
+		price = tracker.get_slot('price')
+		print(price)
+		if price == "300":
+		    budget = 300
+		elif price == "700":
+		    budget = 700
+		else :
+		    budget=700
 		print(budget)
 
 		print("Action: action_search_restaurants")
@@ -52,12 +63,13 @@ class ActionSendMail(Action):
 		return 'action_send_mail'
 
 	def run(self, dispatcher, tracker, domain):
-		MailID = tracker.get_slot('mail_id')
-		print("Action: action_send_mail")
+    	recipient = tracker.get_slot('email')
 
-		sendmail(MailID,response)
-		return [SlotSet('mail_id',MailID)]
+		top10 = restaurants.head(10)
+		print("got this correct")
+		send_email(recipient, top10)
 
+		dispatcher.utter_message("Have a great day!")
 
 class ActionSearchLocation(Action):
 	def name(self):
@@ -92,9 +104,23 @@ class ActionGetPriceSelection(Action):
 		return 'action_get_price'
 	
 	def run(self,dispatcher,tracker,domain):
-		val=tracker.get_slot('budget')
+		print("Action: getting budget slot value")
+		val=tracker.get_slot('price')
+		print("Value found -" + val)
 		print("Action: action_get_price")
 		print("num: - ")
-		temp_dict={'1':[0,300],'2':[300,700],'3':[700]}
-		print(temp_dict[str(val)])
-		return [SlotSet('price',temp_dict[str(val)])]
+		#temp_dict={'300':[0,300],'301':[300,700],'700':[700]}
+		#print(temp_dict[str(val)])
+
+		price = tracker.get_slot('price')
+		print(price)
+		if price == "300":
+		    budget1 = 300
+		elif price == "700":
+		    budget1 = 699
+		else :
+		    budget1=700
+
+		print(budget1)
+
+		return [SlotSet('budget',budget1)]
