@@ -23,7 +23,7 @@ WeOperate = ['Agra', 'Ahmedabad','Allahabad','Amritsar','Aurangabad','Bangalore'
 def RestaurantSearch(City,Cuisine):
 	TEMP = ZomatoData[(ZomatoData['Cuisines'].apply(lambda x: Cuisine.lower() in x.lower())) & (ZomatoData['City'].apply(lambda x: City.lower() in x.lower()))]
 	#Sorting in Descending order as asked in instructions.
-	TEMP.sort_values(by=['Aggregate rating'], ascending=False)
+	TEMP.sort_values(by=['Aggregate rating'], ascending=False, inplace=True)
 	print(TEMP.head(5))
 	return TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
 
